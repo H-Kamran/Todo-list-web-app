@@ -3,7 +3,6 @@ import defaultPhoto from "../../../../assets/photo.jpg";
 // import sidebar from "../../../../assets/sidebar.svg";
 
 import projects from "../../../../data/projects.json";
-console.log(projects);
 
 export default function Sidebar() {
   return (
@@ -57,35 +56,35 @@ c48 49 34 142 -26 169 -19 9 -148 12 -478 12 -403 -1 -455 -2 -479 -17z"
         <ul className="menu-list">
           <li className="list-item">
             <button type="button">
-              <span class="material-symbols-outlined">all_inbox</span>
+              <span className="material-symbols-outlined">all_inbox</span>
               <p>Inbox</p>
             </button>
             <span className="count">0</span>
           </li>
           <li className="list-item">
             <button type="button">
-              <span class="material-symbols-outlined">today</span>
+              <span className="material-symbols-outlined">today</span>
               <p>Today</p>
             </button>
             <span className="count">0</span>
           </li>
           <li className="list-item">
             <button type="button">
-              <span class="material-symbols-outlined">date_range</span>
+              <span className="material-symbols-outlined">date_range</span>
               <p>Upcoming</p>
             </button>
             <span className="count">0</span>
           </li>
           <li className="list-item">
             <button type="button">
-              <span class="material-symbols-outlined">shoppingmode</span>
+              <span className="material-symbols-outlined">shoppingmode</span>
               <p>Label</p>
             </button>
             <span className="count">0</span>
           </li>
           <li className="list-item">
             <button type="button">
-              <span class="material-symbols-outlined">delete</span>
+              <span className="material-symbols-outlined">delete</span>
               <p>Trash</p>
             </button>
             <span className="count">0</span>
@@ -101,7 +100,7 @@ c48 49 34 142 -26 169 -19 9 -148 12 -478 12 -403 -1 -455 -2 -479 -17z"
           {projects.map((project) => (
             <li key={project.id} className="list-item">
               <button type="button">
-                <span class="material-symbols-outlined">work</span>
+                <span className="material-symbols-outlined">work</span>
                 <p>{project.name}</p>
               </button>
               <span className="count">0</span>

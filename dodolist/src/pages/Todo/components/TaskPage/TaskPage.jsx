@@ -1,43 +1,54 @@
 // import TaskItem from "./TaskItem";
 import "./TaskPage.css";
+import { API_ENDPOINTS } from "../../../../api/config.js";
 // import list from "../../../../assets/list.svg";
 // import moon from "../../../../assets/moon.svg";
 // import sun from "../../../../assets/sun.svg";
 import Task from "../Task/Task.jsx";
 import DarkModeToggle from "../../../../components/DarkModeToggle/DarkModeToggle.jsx";
+import { useEffect, useState } from "react";
 
-const tasks = [
-  {
-    id: 1,
-    title: "Download additional free apps and plugins",
-    date: "20 Jan 2024",
-  },
-  { id: 2, title: "Take the productivity method quiz", date: "21 Jan 2024" },
-  { id: 3, title: "Browse the Todoist Inspiration Hub", date: "22 Jan 2024" },
-  { id: 4, title: "FB Community", date: "1 Feb 2024" },
-  {
-    id: 5,
-    title: "Share statistics with USECollaborationGroup",
-    date: "3 Feb 2024",
-  },
-  {
-    id: 6,
-    title: "Share statistics with USECollaborationGroup",
-    date: "6 Feb 2024",
-  },
-  {
-    id: 7,
-    title: "Share statistics with USECollaborationGroup",
-    date: "9 Feb 2024",
-  },
-  {
-    id: 8,
-    title: "Share statistics with USECollaborationGroup",
-    date: "12 Feb 2024",
-  },
-];
+// const tasks = [
+//   {
+//     id: 1,
+//     title: "Download additional free apps and plugins",
+//     date: "20 Jan 2024",
+//   },
+//   { id: 2, title: "Take the productivity method quiz", date: "21 Jan 2024" },
+//   { id: 3, title: "Browse the Todoist Inspiration Hub", date: "22 Jan 2024" },
+//   { id: 4, title: "FB Community", date: "1 Feb 2024" },
+//   {
+//     id: 5,
+//     title: "Share statistics with USECollaborationGroup",
+//     date: "3 Feb 2024",
+//   },
+//   {
+//     id: 6,
+//     title: "Share statistics with USECollaborationGroup",
+//     date: "6 Feb 2024",
+//   },
+//   {
+//     id: 7,
+//     title: "Share statistics with USECollaborationGroup",
+//     date: "9 Feb 2024",
+//   },
+//   {
+//     id: 8,
+//     title: "Share statistics with USECollaborationGroup",
+//     date: "12 Feb 2024",
+//   },
+// ];
 
 export default function TaskPage() {
+  const [tasks, setTasks] = useState([]);
+
+  useEffect(() => {
+    fetch(API_ENDPOINTS.tasks)
+      .then((res) => res.json())
+      .then((data) => setTasks(data))
+      .catch((err) => console.error("Fetch tasks failed:", err));
+  },[]);
+
   return (
     <div className="main-container">
       <div className="main-header">
@@ -94,17 +105,5 @@ export default function TaskPage() {
         </div>
       </div>
     </div>
-    // <main className="flex-1 p-8">
-    //   <div className="flex justify-between items-center mb-6">
-    //     <h1 className="text-2xl font-bold">Today</h1>
-    //     <span className="text-gray-500 text-sm">{tasks.length} tasks</span>
-    //   </div>
-    //   <h2 className="text-gray-600 font-semibold text-sm mb-2">Overdue</h2>
-    //   {/* <ul className="space-y-3">
-    //     {tasks.map((task) => (
-    //     //   <TaskItem key={task.id} title={task.title} date={task.date} />
-    //     ))}
-    //   </ul> */}
-    // </main>
   );
 }
