@@ -157,8 +157,64 @@ function seedDatabase() {
     );
   });
 }
-
 // seedDatabase();
+
+function insertSampleTasks() {
+  // Get existing user to associate tasks with
+  db.get("SELECT id FROM users LIMIT 1", (err, user) => {
+    if (err || !user) return console.error("No user found:", err || "Empty users table");
+    const userId = user.id;
+
+    // Get one project for the user
+    db.get("SELECT id FROM projects WHERE user_id = ? LIMIT 1", [userId], (err, project) => {
+      const projectId = project ? project.id : null;
+
+      // Get one label
+      db.get("SELECT id FROM labels WHERE user_id = ? LIMIT 1", [userId], (err, label) => {
+        const labelId = label ? label.id : null;
+
+        // Define sample tasks
+        const tasks = [
+          {
+            title: "Design landing page",
+            desc: "Create the initial wireframes and design mockups.",
+            due_date: "2025-07-01",
+            done: false,
+            priority: 2,
+          },
+          {
+            title: "Fix login bug",
+            desc: "Resolve the redirect issue after login.",
+            due_date: "2025-06-30",
+            done: false,
+            priority: 3,
+          },
+          {
+            title: "Email newsletter",
+            desc: "Draft the monthly newsletter and send for approval.",
+            due_date: "2025-07-02",
+            done: true,
+            priority: 1,
+          },
+        ];
+
+        // Insert each task
+        tasks.forEach((task) => {
+          db.run(
+            `INSERT INTO tasks (title, desc, due_date, done, priority, user_id, project_id, label_id)
+             VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
+            [task.title, task.desc, task.due_date, task.done, task.priority, userId, projectId, labelId],
+            function (err) {
+              if (err) return console.error("Insert task failed:", err.message);
+              console.log(`✅ Inserted task "${task.title}" with ID ${this.lastID}`);
+            }
+          );
+        });
+      });
+    });
+  });
+}
+// insertSampleTasks();
 
 // Routes
 app.get("/tasks", (req, res) => {

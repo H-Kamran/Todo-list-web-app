@@ -47,7 +47,7 @@ export default function TaskPage() {
       .then((res) => res.json())
       .then((data) => setTasks(data))
       .catch((err) => console.error("Fetch tasks failed:", err));
-  },[]);
+  }, []);
 
   return (
     <div className="main-container">
@@ -101,7 +101,16 @@ export default function TaskPage() {
           <div className="title-container">
             <h1 className="title font-bold text-3xl">Inbox</h1>
           </div>
-          <Task />
+          {tasks.map((task) => (
+            <Task
+              key={task.id}
+              title={task.title}
+              desc={task.desc}
+              due_date={task.due_date}
+              label={task.label_id ? `Label ${task.label_id}` : ""}
+            />
+          ))}
+          {/* <Task /> */}
         </div>
       </div>
     </div>
