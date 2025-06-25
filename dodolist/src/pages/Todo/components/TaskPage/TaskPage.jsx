@@ -1,0 +1,110 @@
+// import TaskItem from "./TaskItem";
+import "./TaskPage.css";
+// import list from "../../../../assets/list.svg";
+// import moon from "../../../../assets/moon.svg";
+// import sun from "../../../../assets/sun.svg";
+import Task from "../Task/Task.jsx";
+import DarkModeToggle from "../../../../components/DarkModeToggle/DarkModeToggle.jsx";
+
+const tasks = [
+  {
+    id: 1,
+    title: "Download additional free apps and plugins",
+    date: "20 Jan 2024",
+  },
+  { id: 2, title: "Take the productivity method quiz", date: "21 Jan 2024" },
+  { id: 3, title: "Browse the Todoist Inspiration Hub", date: "22 Jan 2024" },
+  { id: 4, title: "FB Community", date: "1 Feb 2024" },
+  {
+    id: 5,
+    title: "Share statistics with USECollaborationGroup",
+    date: "3 Feb 2024",
+  },
+  {
+    id: 6,
+    title: "Share statistics with USECollaborationGroup",
+    date: "6 Feb 2024",
+  },
+  {
+    id: 7,
+    title: "Share statistics with USECollaborationGroup",
+    date: "9 Feb 2024",
+  },
+  {
+    id: 8,
+    title: "Share statistics with USECollaborationGroup",
+    date: "12 Feb 2024",
+  },
+];
+
+export default function TaskPage() {
+  return (
+    <div className="main-container">
+      <div className="main-header">
+        <button className="settings-button" type="button">
+          {/* <img src={list} /> */}
+          <svg viewBox="0 0 512 512" width="24" height="24">
+            <g
+              transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
+              fill="var(--secondary-color-c)"
+              stroke="none"
+            >
+              <path
+                d="M1000 5113 c-181 -29 -268 -56 -400 -125 -192 -99 -369 -276 -468
+-468 -57 -110 -83 -182 -109 -300 -17 -80 -18 -174 -18 -1660 0 -1486 1 -1580
+18 -1660 56 -259 193 -486 392 -647 142 -114 302 -190 485 -230 80 -17 174
+-18 1660 -18 1486 0 1580 1 1660 18 183 40 343 116 485 230 199 161 336 388
+392 647 17 80 18 174 18 1660 0 1486 -1 1580 -18 1660 -26 118 -52 190 -109
+300 -149 288 -421 495 -758 576 -70 17 -169 18 -1640 20 -861 1 -1576 0 -1590
+-3z m3190 -335 c163 -49 272 -111 374 -214 105 -104 170 -220 214 -379 16 -55
+17 -195 17 -1625 0 -1708 4 -1586 -55 -1742 -66 -178 -260 -372 -438 -438
+-156 -59 -34 -55 -1742 -55 -1708 0 -1586 -4 -1742 55 -177 66 -372 261 -438
+438 -59 157 -55 28 -58 1697 -2 1132 0 1549 9 1605 52 336 303 597 639 665 52
+11 364 13 1615 12 1416 -2 1555 -4 1605 -19z"
+              />
+              <path
+                d="M1215 3986 c-41 -18 -83 -69 -90 -109 -4 -18 -5 -118 -3 -224 3 -210
+5 -218 72 -267 26 -20 41 -21 246 -21 241 0 243 1 294 69 20 26 21 41 21 246
+0 205 -1 220 -21 246 -50 67 -55 69 -282 71 -157 2 -214 0 -237 -11z"
+              />
+              <path d="M2080 3680 l0 -160 960 0 960 0 0 160 0 160 -960 0 -960 0 0 -160z" />
+              <path
+                d="M1215 2866 c-41 -18 -83 -69 -90 -109 -4 -18 -5 -118 -3 -224 3 -210
+5 -218 72 -267 26 -20 41 -21 246 -21 205 0 220 1 246 21 68 51 69 53 69 294
+0 205 -1 220 -21 246 -50 67 -55 69 -282 71 -157 2 -214 0 -237 -11z"
+              />
+              <path d="M2080 2560 l0 -160 960 0 960 0 0 160 0 160 -960 0 -960 0 0 -160z" />
+              <path
+                d="M1215 1746 c-41 -18 -83 -69 -90 -109 -4 -18 -5 -118 -3 -224 3 -210
+5 -218 72 -267 26 -20 41 -21 246 -21 205 0 220 1 246 21 68 51 69 53 69 294
+0 205 -1 220 -21 246 -50 67 -55 69 -282 71 -157 2 -214 0 -237 -11z"
+              />
+              <path d="M2080 1440 l0 -160 960 0 960 0 0 160 0 160 -960 0 -960 0 0 -160z" />
+            </g>
+          </svg>
+        </button>
+        <DarkModeToggle />
+      </div>
+      <div className="main-content">
+        <div className="content-container">
+          <div className="title-container">
+            <h1 className="title font-bold text-3xl">Inbox</h1>
+          </div>
+          <Task />
+        </div>
+      </div>
+    </div>
+    // <main className="flex-1 p-8">
+    //   <div className="flex justify-between items-center mb-6">
+    //     <h1 className="text-2xl font-bold">Today</h1>
+    //     <span className="text-gray-500 text-sm">{tasks.length} tasks</span>
+    //   </div>
+    //   <h2 className="text-gray-600 font-semibold text-sm mb-2">Overdue</h2>
+    //   {/* <ul className="space-y-3">
+    //     {tasks.map((task) => (
+    //     //   <TaskItem key={task.id} title={task.title} date={task.date} />
+    //     ))}
+    //   </ul> */}
+    // </main>
+  );
+}

@@ -1,0 +1,8 @@
+/* .task-card span{
+    width: 100px;
+} */
+
+.task-card .check-container{
+    display: flex;
+    align-items: start;
+}

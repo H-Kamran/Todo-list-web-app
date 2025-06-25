@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "name": "Kamran Hasanov",
+    "email": "kamran@example.com",
+    "avatar_url": "/images/kamran.jpg",
+    "auth_provider": "local"
+  },
+  {
+    "id": 2,
+    "name": "Elvin Rzayev",
+    "email": "elvin@example.com",
+    "avatar_url": "/images/elvin.jpg",
+    "auth_provider": "google"
+  }
+]

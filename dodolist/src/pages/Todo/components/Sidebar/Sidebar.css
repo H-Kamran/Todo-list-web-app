@@ -1,0 +1,85 @@
+aside {
+  background-color: var(--secondary-color-light-bg);
+  width: 17%;
+  padding: 10px;
+}
+.aside-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.aside-header .user-profile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.user-profile .user-photo img {
+  border-radius: 50%;
+  width: 35px;
+}
+
+.aside-header .sidebar-icon {
+  width: 25px;
+}
+
+.navigation {
+  margin-top: 20px;
+  padding: 0px;
+}
+.navigation .list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2px;
+  border-radius: 5px;
+  color: var(--primary-color-c);
+
+  /* padding: 0px 10px 0px; */
+}
+.navigation .list-item:hover {
+  background-color: var(--primary-color-hover-bg);
+  color: var(--secondary-color-hover-c);
+}
+.list-item button {
+  width: 95%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  background-color: transparent;
+  border: transparent;
+}
+.list-item button span {
+  font-size: 1.2em;
+  padding: 0px 10px;
+}
+.list-item button p {
+  padding-left: 5px;
+}
+.list-item .count {
+  padding: 5px;
+}
+
+aside hr {
+  margin-top: 10px;
+}
+
+.projects {
+  margin-top: 10px;
+}
+.projects .title-container {
+  padding: 5px 10px;
+  display: flex;
+  align-items: flex-start;
+}
+.projects .projects-list {
+  margin-top: 0;
+}
+.projects-list button {
+  max-width: 90%;
+}
+.projects-list button p {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

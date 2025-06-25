@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "name": "Personal Tasks",
+    "description": "Things to do in daily life",
+    "user_id": 1
+  },
+  {
+    "id": 2,
+    "name": "Web App Developmentwafbkwjabjwadbkwajbj",
+    "description": "React and backend project",
+    "user_id": 1
+  },
+  {
+    "id": 3,
+    "name": "Marketing Strategy",
+    "description": "Planning for product launch",
+    "user_id": 2
+  }
+]

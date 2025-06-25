@@ -1,0 +1,213 @@
+.registration-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 95vh;
+    background-color: var(--primary-color-light-bg);
+  }
+  .registration-forms-container {
+    background-color: var(--primary-color-light-bg);
+    border-radius: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+    position: relative;
+    overflow: hidden;
+    width: 768px;
+    max-width: 100%;
+    min-height: 480px;
+  }
+  
+  /* .registration-forms-container p {
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.3px;
+    margin: 20px 0;
+  } */
+  
+  .form-container h1 {
+    color: var(--secondary-color-c);
+    font-size: xx-large;
+  }
+  
+  /* .registration-forms-container span {
+    font-size: 12px;
+  } */
+  
+  .registration-forms-container a {
+    color: var(--secondary-color-c);
+    font-size: 13px;
+    text-decoration: none;
+    margin: 15px 0 10px;
+  }
+  
+  .registration-forms-container button {
+    background-color: var(--secondary-color-light-bg);
+    color: var(--primary-color-c);
+    font-size: 12px;
+    padding: 10px 45px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-top: 30px;
+    cursor: pointer;
+  }
+  
+  /* .registration-forms-container button.hidden {
+    background-color: transparent;
+    border-color: var(--primary-color);
+  } */
+  
+  .registration-forms-container form {
+    background-color: var(--primary-color-light-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 40px;
+    height: 100%;
+  }
+  
+  .registration-forms-container input {
+    background-color: var(--input-color-bg);
+    color: var(--input-color-c);
+    border: none;
+    margin: 8px 0;
+    padding: 10px 15px;
+    font-size: 13px;
+    border-radius: 8px;
+    width: 100%;
+    outline: none;
+  }
+  .registration-forms-container input::placeholder {
+    color: var(--input-color-c);
+  }
+  .form-container {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    transition: all 0.6s ease-in-out;
+  }
+  .sign-in {
+    left: 0;
+    width: 50%;
+    z-index: 2;
+  }
+  .registration-forms-container.active .sign-in {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  .sign-up {
+    left: 0;
+    width: 50%;
+    opacity: 0;
+    z-index: 1;
+  }
+  .registration-forms-container.active .sign-up {
+    transform: translateX(100%);
+    opacity: 1;
+    z-index: 3;
+    animation: move 0.6s;
+  }
+  
+  @keyframes move {
+    0%,
+    49.99% {
+      opacity: 0;
+      z-index: 1;
+    }
+    50%,
+    100% {
+      opacity: 1;
+      z-index: 5;
+    }
+  }
+  
+  .social-icons {
+    margin: 20px 0;
+  }
+  
+  .social-icons a {
+    border: 1px solid var(--secondary-color-c);
+    border-radius: 20%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 3px;
+    width: 40px;
+    height: 40px;
+  }
+  
+  .toggle-container {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    transition: all 0.6s ease-in-out;
+    border-radius: 150px 0 0 100px;
+    z-index: 1000;
+  }
+  
+  .registration-forms-container.active .toggle-container {
+    transform: translateX(-100%);
+    border-radius: 0 150px 100px 0;
+  }
+  
+  .toggle {
+    height: 100%;
+    background: linear-gradient(
+      to right,
+      var(--secondary-color-light-bg),
+      var(--secondary-color-bg)
+    );
+    color: var(--primary-color-c);
+    position: relative;
+    left: -100%;
+    height: 100%;
+    width: 200%;
+    transform: translateX(0);
+    transition: all 0.6s ease-in-out;
+  }
+  
+  .registration-forms-container.active .toggle {
+    transform: translateX(50%);
+  }
+  
+  .toggle-panel {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 30px;
+    text-align: center;
+    top: 0;
+    transform: translateX(0);
+    transition: all 0.6s ease-in-out;
+  }
+  
+  .toggle-left {
+    transform: translateX(-200%);
+  }
+  
+  .registration-forms-container.active .toggle-left {
+    transform: translateX(-5%);
+  }
+  
+  .toggle-right {
+    right: 0;
+    transform: translateX(5%);
+  }
+  
+  .registration-forms-container.active .toggle-right {
+    transform: translateX(200%);
+  }
+  
+  .toggle-container button{
+    background-color: var(--primary-color-bg);
+    color: var(--secondary-color-c);
+  }
