@@ -14,7 +14,7 @@
   left: 0;
   top: 50%;
   height: 3px;
-  background: var(--secondary-color-bg);
+  background: var(--secondary-color-c);
   animation: doneLineGrow 0.5s forwards;
   z-index: 2;
 }
