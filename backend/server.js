@@ -218,10 +218,30 @@ function insertSampleTasks() {
 
 // Routes
 app.get("/tasks", (req, res) => {
-  db.all("SELECT * FROM tasks", [], (err, rows) => {
+  let sql = "SELECT * FROM tasks";
+  const params = [];
+  if (req.query.done !== undefined) {
+    sql += " WHERE done = ?";
+    params.push(req.query.done === 'true');
+  }
+  db.all(sql, params, (err, rows) => {
     if (err) return res.status(500).json({ error: err.message });
     res.json(rows);
-  }); 
+  });
+});
+
+// Update task done status
+app.patch("/tasks/:id", (req, res) => {
+  console.log("Updating task ID:", req.params.id);
+  const { done } = req.body;
+  db.run(
+    "UPDATE tasks SET done = ? WHERE id = ?",
+    [done, req.params.id],
+    function (err) {
+      if (err) return res.status(500).json({ error: err.message });
+      res.json({ updated: this.changes });
+    }
+  );
 });
 
 // app.post("/todos", (req, res) => {

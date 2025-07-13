@@ -43,7 +43,7 @@ export default function TaskPage() {
   const [tasks, setTasks] = useState([]);
 
   useEffect(() => {
-    fetch(API_ENDPOINTS.tasks)
+    fetch(`${API_ENDPOINTS.tasks}?done=false`)
       .then((res) => res.json())
       .then((data) => setTasks(data))
       .catch((err) => console.error("Fetch tasks failed:", err));
@@ -104,6 +104,7 @@ export default function TaskPage() {
           {tasks.map((task) => (
             <Task
               key={task.id}
+              id={task.id}
               title={task.title}
               desc={task.desc}
               due_date={task.due_date}
