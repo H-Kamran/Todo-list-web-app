@@ -69,7 +69,7 @@ export default function Task({ id, title, desc, due_date, label }) {
             height="24"
             viewBox="0 0 1280 1185"
             preserveAspectRatio="xMidYMid meet"
-            className={`w-5 mt-2 absolute${done ? " check_done" : ""}`}
+            className={`w-5 mt-2 absolute ${done ? "check_done" : ""}`}
             style={{ visibility: done ? "visible" : "hidden" }}
           >
             <g

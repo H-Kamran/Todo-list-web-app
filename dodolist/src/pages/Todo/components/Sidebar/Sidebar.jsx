@@ -3,10 +3,13 @@ import defaultPhoto from "../../../../assets/photo.jpg";
 // import sidebar from "../../../../assets/sidebar.svg";
 
 import projects from "../../../../data/projects.json";
+import { useState } from "react";
 
 export default function Sidebar() {
+  const [open, setOpen] = useState(true);
+  const toggleSidebar = () => setOpen((prev) => !prev);
   return (
-    <aside>
+    <aside className={open ? '' : 'closed'}>
       <div className="aside-header">
         <div className="user-profile">
           <div className="user-photo">
@@ -17,10 +20,10 @@ export default function Sidebar() {
           </div>
         </div>
         {/* <img className="sidebar-icon" src={sidebar} alt="photo" /> */}
-        <svg viewBox="0 0 512 512" width="24" height="24">
+        <svg viewBox="0 0 512 512" width="24" height="24" onClick={toggleSidebar} className="cursor-pointer">
           <g
             transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
-            fill="var(--primary-color-c)"
+            fill={open ? "var(--primary-color-c)" : "var(--secondary-color-c)"}
             stroke="none"
           >
             <path
@@ -28,10 +31,10 @@ export default function Sidebar() {
 35 -148 148 -289 285 -353 41 -20 99 -41 128 -47 37 -8 487 -11 1495 -11 1236
 0 1451 2 1505 15 190 45 352 206 397 396 22 97 22 2921 0 3018 -45 190 -207
 351 -397 396 -92 22 -2932 21 -3022 -1z m1299 -1904 l0 -1705 -620 0 -620 0
--56 26 c-79 37 -131 88 -165 161 l-29 63 0 1455 0 1455 28 60 c15 33 42 75 60
+56 26 c-79 37 -131 88 -165 161 l-29 63 0 1455 0 1455 28 60 c15 33 42 75 60
 93 36 38 108 78 164 91 21 5 308 8 638 8 l600 -2 0 -1705z m1678 1695 c103
--27 167 -82 216 -185 l26 -55 0 -1455 0 -1455 -26 -55 c-37 -80 -81 -125 -157
--162 l-67 -33 -727 -3 -728 -3 0 1711 0 1710 703 0 c590 0 712 -2 760 -15z"
+27 167 -82 216 -185 l26 -55 0 -1455 0 -1455 -26 -55 c-37 -80 -81 -125 -157
+162 l-67 -33 -727 -3 -728 -3 0 1711 0 1710 703 0 c590 0 712 -2 760 -15z"
             />
             <path
               d="M1118 3823 c-56 -35 -66 -117 -19 -164 l29 -29 472 0 472 0 29 29

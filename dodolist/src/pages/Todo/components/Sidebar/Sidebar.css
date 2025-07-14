@@ -1,9 +1,33 @@
 aside {
   background-color: var(--secondary-color-light-bg);
-  width: 17%;
+  width: 25%;
+  min-width: 260px;
   padding: 10px;
+  transition: width 0.3s, min-width 0.3s;
 }
+
+aside.closed {
+  width: 0;
+  min-width: 0;
+  padding: 0;
+  border: none;
+  transition: width 0.3s, min-width 0.3s;
+}
+aside.closed .aside-header {
+  width: 60px;
+  min-width: 60px;
+  padding: 0;
+}
+aside.closed .aside-header > *:not(svg) {
+  display: none;
+}
+aside.closed .aside-header svg {
+  margin: 15px 10px;
+}
+
 .aside-header {
+  position: relative;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
